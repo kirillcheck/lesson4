@@ -66,10 +66,10 @@ let appData = {
     chooseIncome: function () {
         for (let i = 0; i < 1; i++) {
             let items = prompt('Что принесет дополнительный доход? {Перечеслите через запятую}', "");
-            if (items !== (typeof (items) === 'string') && items != '' && items != null) {
+            if ((typeof items) === 'string' && items != '' && items != null && items != +items) {
                 console.log("Правильный ввод");
                 appData.income = items.split(', ');
-                appData.income.push(prompt(' может что-то еще? '));
+                appData.income.push(prompt(' может что-то еще? '))
                 appData.income.sort();
             } else {
                 i = i - 1;
@@ -79,7 +79,7 @@ let appData = {
         }
 
         appData.income.forEach(function (item, number, income) {
-            let i =  number + 1 ;
+            let i = number + 1;
             alert("Способы доп. заработка: " + i + " И полученные способы: " + item);
         });
 
